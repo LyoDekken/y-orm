@@ -1,25 +1,25 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity("doctors")
+@Entity('doctors')
 export class Doctor {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @Column("varchar", { length: 120 })
+  @Column('varchar', { length: 120 })
   name: string;
 
-  @Column("varchar", { length: 12 })
-  crm: string;
+  @Column('varchar', { length: 7 })
+  crm: number;
 
-  @Column("varchar", { length: 12 })
-  telfix: string;
+  @Column('varchar', { length: 13 })
+  telfix: number;
 
-  @Column("varchar", { length: 12 })
-  telcel: string;
+  @Column('varchar', { length: 13 })
+  telcel: number;
 
-  @Column({ type: "int" })
+  @Column('varchar', { length: 8 })
   cep: number;
 
-  @Column()
-  speciality: string; 
+  @Column({ type: "varchar", array: true })
+  speciality: string[];
 }

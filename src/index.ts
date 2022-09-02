@@ -1,6 +1,6 @@
-import express from "express";
-import { AppDataSource } from "./data-source";
-import routes from "./routes/routes";
+import express from 'express';
+import { AppDataSource } from './data-source';
+import routes from './routes/routes';
 
 AppDataSource.initialize().then(() => {
   const app = express();
@@ -8,7 +8,5 @@ AppDataSource.initialize().then(() => {
   app.use(express.json());
   app.use(routes);
 
-  return app.listen(3000, () => {
-    console.log('🏃 Running Server');
-  });
+  app.listen(process.env.PORT, () => console.log('🏃 Running Server'));
 });

@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=hum12345
+      - POSTGRES_DB=api-gcb
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+  app:
+    container_name: api-gcb
+    restart: always
+    build: .
+    ports:
+    - "3000:3000"
+    depends_on:
+    - db
